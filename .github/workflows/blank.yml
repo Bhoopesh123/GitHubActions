@@ -49,6 +49,10 @@ jobs:
       #     mkdir -p $HOME/.kube
       #     echo "${{ secrets.KUBECONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
 
+      - name: Debug kubeconfig
+        run: |
+          kubectl config view
+          kubectl get svc
 
       - name: Deploy to Kubernetes
         run: |
