@@ -49,10 +49,10 @@ jobs:
       #     mkdir -p $HOME/.kube
       #     echo "${{ secrets.KUBECONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
 
-      - name: Debug kubeconfig
-        run: |
-          kubectl config view
-          kubectl get svc
+      # - name: Debug kubeconfig
+      #   run: |
+      #     kubectl config view
+      #     kubectl get svc
 
       - name: Debug AWS token
         run: aws eks get-token --region ap-south-1 --cluster-name eks-first-cluster
