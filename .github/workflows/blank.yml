@@ -31,4 +31,4 @@ jobs:
 
     - name: Deploy to EKS
       run: |
-        kubectl get nodes
+        kubectl apply -f k8s/ -n metrics
