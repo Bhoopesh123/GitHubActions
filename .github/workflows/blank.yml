@@ -40,10 +40,14 @@ jobs:
           role-to-assume: arn:aws:iam::183315836917:role/githubrole
           aws-region: ap-south-1
 
-      - name: Set up kubeconfig
+      - name: Update kubeconfig for EKS
         run: |
-          mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBECONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
+          aws eks update-kubeconfig --region ap-south-1 --name eks-first-cluster
+
+      # - name: Set up kubeconfig
+      #   run: |
+      #     mkdir -p $HOME/.kube
+      #     echo "${{ secrets.KUBECONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
 
 
       - name: Deploy to Kubernetes
