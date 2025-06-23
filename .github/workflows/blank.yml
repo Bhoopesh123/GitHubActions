@@ -54,6 +54,13 @@ jobs:
           kubectl config view
           kubectl get svc
 
+      - name: Debug AWS token
+        run: aws eks get-token --region ap-south-1 --cluster-name eks-first-cluster
+
+      - name: Test Kubernetes Access
+        run: kubectl get nodes
+
+
       - name: Deploy to Kubernetes
         run: |
           kubectl apply -f k8s/
